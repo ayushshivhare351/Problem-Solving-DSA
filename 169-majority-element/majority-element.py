@@ -10,5 +10,6 @@ class Solution:
                 if count==0:
                     count = 1
                     majority = nums[i]
-        return majority
+        if nums.count(majority) > len(nums)/2:
+            return majority
 
