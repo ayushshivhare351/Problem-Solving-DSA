@@ -11,5 +11,5 @@ class Solution:
             else:
                 dictt[nums[i]]= i
     
-    
-            
+
+         
