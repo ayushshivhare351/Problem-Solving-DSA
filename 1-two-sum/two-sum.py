@@ -4,12 +4,12 @@ class Solution:
 
 
 
-        
         for i in range(len(nums)):
             summ = target-nums[i]
             if summ in dictt:
                 return [dictt[summ],i]
             else:
                 dictt[nums[i]]= i
+    
     
             
