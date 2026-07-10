@@ -15,7 +15,7 @@
 
 ## 📖 About
 
-**LeetSync** is where I track and organize my LeetCode grind — every solved problem, committed and categorized by topic. This repo doubles as a personal reference for revising patterns before interviews and a public log of consistent DSA practice.
+This is where I track and organize my LeetCode grind — every solved problem, committed and categorized by topic.
 
 - 🎯 Currently ranked in the **top 13% globally** on LeetCode
 - 🧠 Focused on interview-relevant patterns: Arrays, DP, Graphs/Trees, Two Pointers, Sliding Window, Backtracking
