@@ -4,13 +4,12 @@ class Solution:
             return x
         i = 1
         j = x
-        while i<j:
+        while i<=j:
             mid = (i+j)//2
             if mid**2 == x:
                 return mid
-            elif mid**2 < x and (mid+1)**2>x:
-                return mid
             elif mid**2 > x:
-                j = mid
+                j = mid -1
             else:
                 i = mid+1
+        return j
