@@ -6,12 +6,19 @@ class Solution:
             freq[item]=freq.get(item,0)+1
         
         def compare(p, q):
-            # If frequencies are different, we want the higher frequency first
+            # string -- int
+            # DIFF FREQ
             if p[1] != q[1]:
-                return -1 if p[1] > q[1] else 1
-            # If frequencies are the same, we want alphabetical order (e.g., "i" before "love")
+                if p[1] > q[1]:
+                    return -1
+                else:
+                    return 1
+            # SAME FREQUENCY
             else:
-                return -1 if p[0] < q[0] else 1
+                if p[0] < q[0]:
+                    return -1
+                else:
+                    return 1
 
         arr = []
         for item in freq:
