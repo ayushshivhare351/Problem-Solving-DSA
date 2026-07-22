@@ -1,20 +1,19 @@
+from heapq import heappop,heappush,heapify
 class KthLargest:
-    import heapq 
 
-    def __init__(self, k: int, nums: List[int]):
-        self.pq = []
+    def __init__(self, k: int, nums: List[int]):            
+        self.heap = []
         for item in nums:
-            heapq.heappush(self.pq,item)
-            if len(self.pq)>k:
-                heapq.heappop(self.pq)
+            heappush(self.heap,item)
+            if len(self.heap)>k:
+                heappop(self.heap)
+
         self.k = k
-            
     def add(self, val: int) -> int:
-        heapq.heappush(self.pq,val)
-        if len(self.pq)>self.k:
-            heapq.heappop(self.pq)
-        return self.pq[0]
-        
+        heappush(self.heap,val)
+        if len(self.heap)>self.k:
+            heappop(self.heap)
+        return self.heap[0]
 
 
 # Your KthLargest object will be instantiated and called as such:
