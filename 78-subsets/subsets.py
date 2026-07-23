@@ -1,17 +1,15 @@
-class Solution:   
+class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         res = []
-        subsett = []
-        def solve(i):
-            if i>= len(nums):
-                res.append(subsett.copy())
+        def solve(i,temp):
+            if i==len(nums):
+                res.append(temp.copy())
                 return
-            #take
-            subsett.append(nums[i])
-            solve(i+1)
-            #skip
-            subsett.pop()
-            solve(i+1) 
+
+            temp.append(nums[i])
+            solve(i+1,temp)
+            temp.pop()
+            solve(i+1,temp)
             
-        solve(0)
+        solve(0,[])
         return res
