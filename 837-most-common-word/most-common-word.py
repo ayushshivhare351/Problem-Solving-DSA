@@ -1,23 +1,25 @@
 class Solution:
-    def mostCommonWord(self, s: str, banned: List[str]) -> str:
-        ss = ""
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        paragraph = paragraph.lower()
+        s = ""
         listt = []
-        for item in s.lower():
+        for item in paragraph:
             if item.isalpha():
-                ss+=item
+                s += item
             else:
-                if ss:
-                    listt.append(ss)
-                    ss = ""
-        
-        if ss:
-            listt.append(ss)
+                listt.append(s)
+                s = ""
+        listt.append(s)
 
-        freq =  {}
+        freq = {}
         for item in listt:
-            if item not in banned:
+            if item != "" and item not in banned:
                 freq[item]=freq.get(item,0)+1
+                
         maxf = max(freq.values())
+
         for item in freq:
             if freq[item]==maxf:
                 return item
+
+        
