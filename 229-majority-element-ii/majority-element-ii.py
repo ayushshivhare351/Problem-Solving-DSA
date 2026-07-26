@@ -1,28 +1,28 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
-        majority1 = None
-        majority2 = None
-        count1 = 0
-        count2 = 0
+        
+        m1 = None
+        m2 = None
+        c1 = 0
+        c2 = 0
         for i in range(len(nums)):
-            if nums[i]==majority1:
-                count1+=1
-            elif nums[i]==majority2:
-                count2+=1
-            elif count1==0:
-                majority1 = nums[i]
-                count1 = 1
-            elif count2==0:
-                majority2  = nums[i]
-                count2 = 1    
+            if nums[i]==m1:
+                c1+=1
+            elif nums[i]==m2:
+                c2+=1
+            elif c1==0:
+                m1= nums[i]
+                c1 = 1
+            elif c2==0:
+                m2 = nums[i]
+                c2 = 1
             else:
-                count1-=1
-                count2-=1
+                c1-=1
+                c2-=1
         
         res = []
-        if nums.count(majority1) > len(nums)/3:
-            res.append(majority1)
-        if nums.count(majority2) > len(nums)/3:
-            res.append(majority2)
-
+        if nums.count(m1)>(len(nums)//3):
+            res.append(m1)
+        if nums.count(m2)>(len(nums)//3):
+            res.append(m2)
         return res
