@@ -1,31 +1,23 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        from collections import deque
-        stack = deque()
-        number = deque()
-        num = 0
-        for ch in s:
-            if ch.isdigit():
-                num = num * 10 + int(ch)
-            
-            elif ch == "[":
-                number.append(num)
-                num = 0
-                stack.append(ch)
-            elif ch != ']':
-                stack.append(ch)
-                
+        n = []
+        st = []
+        x = 0
+        for item in s:
+            if item.isdigit():
+                x = x*10 + int(item)
+            elif item=='[':
+                n.append(x)
+                x = 0
+                st.append('[')
+            elif item==']':
+                string = ""
+                while st[-1]!='[':
+                    string = st.pop() + string
+                st.pop()
+                number = n.pop()
+                st.append(string*int(number))
             else:
-                strr = ""
-                while stack:
-                    res = stack.pop()
-                    if res == "[":
-                        n = number.pop()
-                        stack.append(n*strr)
-                        break
-                    strr = res + strr
-                
-        final = ""
-        while stack:
-            final = stack.pop() + final
-        return final
+                st.append(item)
+   
+        return "".join(st)
