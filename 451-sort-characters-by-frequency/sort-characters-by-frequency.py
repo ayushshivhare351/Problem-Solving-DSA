@@ -1,22 +1,14 @@
 class Solution:
     def frequencySort(self, s: str) -> str:
-        from heapq import heappush,heappop,heapify
-        heap = []
-        heapify_max(heap)
-        freq = {}
-        for item in s:
-            freq[item]= freq.get(item,0)+1
-
-        for item in freq:
-            heappush_max(heap,[freq[item],item])
+        f = {}
+        for i in s:
+            f[i]=f.get(i,0)+1
 
         res = ""
-        while heap:
-            temp = []
-            ss = ""
-            a = heappop_max(heap)
-            for i in range(a[0]):
-                ss+= a[1]
-            res+=ss
+        mf = max(f.values())
+        for j in range(mf,0,-1):
+            for ch in f:
+                if f[ch]==j:
+                    res += ch*j
+
         return res
-        
