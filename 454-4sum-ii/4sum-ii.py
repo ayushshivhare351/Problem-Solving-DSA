@@ -3,13 +3,13 @@ class Solution:
         freq = {}
         for i in range(len(nums1)):
             for j in range(len(nums2)):
-                freq[nums1[i]+nums2[j]]= freq.get(nums1[i]+nums2[j],0)+1
-
+                freq[nums1[i]+nums2[j]]=freq.get(nums1[i]+nums2[j],0)+1
+                
         count = 0
         for k in range(len(nums3)):
             for l in range(len(nums4)):
-                val = nums3[k]+nums4[l]
-                if -val in freq:
-                    count += freq[-val]
-            
+                summ = nums3[k]+nums4[l]
+                if -summ in freq:
+                    count += freq[-summ]
+                
         return count
