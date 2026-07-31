@@ -1,7 +1,9 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        i,j = 0,0
-        k = len(nums)-1
+        i =0
+        j =0
+        n= len(nums)
+        k = n-1
         while j<=k:
             if nums[j]==0:
                 nums[i],nums[j]=nums[j],nums[i]
@@ -12,4 +14,5 @@ class Solution:
                 k-=1
             else:
                 j+=1
+            
         
