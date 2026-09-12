@@ -1,35 +1,25 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        st = []
-        nt = []
-        num = 0
-        for item in s:
+        number = []
+        stack = []
+        n = 0
+        for item in list(s):
             if item.isdigit():
-                num = (num*10)+int(item)
-            elif item == '[':
-                nt.append(num)
-                num = 0
-                st.append('[')
-            elif item == ']':
-                res = ''
-                while st and st[-1]!='[':
-                    res =  st.pop() + res
-                st.pop()
-        
-                st.append(res*nt.pop())
+                n = n*10 + int(item)
+            elif item==']':
+                string = ""
+                while stack and stack[-1]!='[':
+                    string = stack.pop() + string
+                stack.pop()
+                val = number.pop()
+                ss = string*val
+                stack.append(ss)
             else:
-                st.append(item)
-        ans = ''
-        while st:    
-            ans = st.pop() + ans
-
-        return ans
-
-
-
-
-
-
-
-
-
+                if n!=0:
+                    number.append(n)
+                    n = 0
+                stack.append(item)
+        return "".join(stack)
+        # 
+        # 300[a]
+        # 
